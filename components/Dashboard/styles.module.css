@@ -305,6 +305,14 @@
   width: 358px;
 }
 
+.tableHeader:nth-child(5) {
+  width: 150px;
+}
+
+.tableHeader:nth-child(6) {
+  width: 150px;
+}
+
 .tableRow {
   border-bottom: 1px solid #9BA5B7;
 }
