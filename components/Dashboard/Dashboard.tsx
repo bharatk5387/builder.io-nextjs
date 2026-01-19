@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
 
 interface TableRow {
@@ -9,15 +9,35 @@ interface TableRow {
   jobTitle: string;
 }
 
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  status: string;
+  joinDate: string;
+}
+
 interface DashboardProps {
   balance?: string;
 }
 
 function Dashboard({ balance = "$ 1,893.44" }: DashboardProps) {
+  const [activeTab, setActiveTab] = useState<"dashboard" | "events" | "users">("dashboard");
+
   const tableData: TableRow[] = [
     { id: 1, name: "Darlene Robertson", dateOfBirth: "02/07/1971", jobTitle: "Dog Trainer" },
     { id: 2, name: "Ronald Richards", dateOfBirth: "28/03/1968", jobTitle: "Marketing Head" },
     { id: 3, name: "Jenone Bell", dateOfBirth: "12/08/1985", jobTitle: "President of Sales" },
+  ];
+
+  const usersData: User[] = [
+    { id: 1, name: "Sarah Johnson", email: "sarah.johnson@example.com", phone: "+1 (555) 123-4567", status: "Active", joinDate: "15/01/2023" },
+    { id: 2, name: "Michael Chen", email: "michael.chen@example.com", phone: "+1 (555) 234-5678", status: "Active", joinDate: "22/03/2023" },
+    { id: 3, name: "Emma Wilson", email: "emma.wilson@example.com", phone: "+1 (555) 345-6789", status: "Inactive", joinDate: "10/05/2022" },
+    { id: 4, name: "James Rodriguez", email: "james.rodriguez@example.com", phone: "+1 (555) 456-7890", status: "Active", joinDate: "08/11/2023" },
+    { id: 5, name: "Olivia Martinez", email: "olivia.martinez@example.com", phone: "+1 (555) 567-8901", status: "Active", joinDate: "30/06/2023" },
+    { id: 6, name: "David Thompson", email: "david.thompson@example.com", phone: "+1 (555) 678-9012", status: "Inactive", joinDate: "14/02/2022" },
   ];
 
   return (
